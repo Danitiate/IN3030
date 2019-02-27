@@ -126,7 +126,7 @@ class Oblig2Precode {
 			return;
 
 
-		String filename = String.format("O2Result_%d_%s_%d.txt", seed, mode, m.length);
+		String filename = String.format("Results/O2Result_%d_%s_%d.txt", seed, mode, m.length);
 
 		try (PrintWriter writer = new PrintWriter(filename)) {
 			writer.printf("seed=%d mode=%s n=%d\n\n", seed, mode, m.length);
