@@ -11,7 +11,7 @@ class Sekvensiell{
     this.k = k;
   }
 
-  public int[] solve(){
+  public void solve(){
     Oblig1.insertSort(nums, 0, k-1);
     int i = k;
     while(i < n){
@@ -23,7 +23,6 @@ class Sekvensiell{
       }
       i++;
     }
-    return nums;
   }
 
   public long solveControl(int[] a){
@@ -33,9 +32,20 @@ class Sekvensiell{
     //Checking if both arrays have the k largest numbers sorted
     int j = 0;
     for(int i = n-1; i >= n-k; i--){
-      //assert (nums[i] == a[j++]) == true;
-      System.out.println(a[j++] + " | " + nums[i]);
+      if(nums[i] != a[j++]){
+        System.out.println("ERROR!!! Array not correctly sorted!");
+        //printArray(a, nums);
+        System.exit(1);
+      }
     }
     return tid;
   }
+
+  /*USED FOR DEBUGGING - Prints nums[0...k-1] and compares to control array
+  public void printArray(int[] a, int[] b){
+    int j = n-1;
+    for(int i = 0; i < k; i++){
+      System.out.println(a[i] + " | " + b[j--]);
+    }
+  }*/
 }
