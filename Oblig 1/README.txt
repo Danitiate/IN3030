@@ -55,6 +55,31 @@
 	1 000 000	      94 ms		  0 ms			    2 ms
 	10 000 000	    1124 ms		  5 ms			   11 ms
 	100 000 000	   14256 ms		 48 ms			  100 ms
+	
+	
+	3.4: Tested on a Windows 10 Pro 64 bit computer
+	
+	3.5: CPU: Intel Core i5-4670K @ 3.40 GHz (4 cores)
+	
+	3.6: Each test has been run 7 times, showing the median result.
+	
+	
+	
+	k = 20		Arrays.sort()		Sequential		Parallell
+	1 000		   0 ms			  0 ms			   0 ms	
+	10 000		   0 ms			  0 ms		   	   0 ms	
+	100 000		   5 ms			  0 ms			   1 ms				
+	1 000 000	  70 ms			  1 ms			   2 ms
+	10 000 000	 835 ms			 19 ms			  10 ms
+	100 000 000	9552 ms			193 ms			  83 ms
+	
+	k = 100		Arrays.sort()		Sequential		Parallell
+	1 000		   0 ms			  0 ms			   0 ms
+	10 000		   0 ms			  0 ms			   0 ms
+	100 000		   5 ms			  0 ms			   1 ms
+	1 000 000	  71 ms			  2 ms			   2 ms
+	10 000 000	 838 ms			 19 ms			   9 ms
+	100 000 000	9583 ms			192 ms			  73 ms
 
 
 	
@@ -63,7 +88,8 @@
 	4.1: This new version has a lot of improvements. First of all the program has been
 	     easier to read and gotten rid of redundant code. Secondly the parallell solution
 	     has been made alot more reliable and faster. However I am still not able to get
-	     a speedup > 1. 
+	     a speedup > 1 on the first computer, but once I tried with another PC with a faster
+	     CPU, I got a speedup of 2.32x (N = 100 000 000, K=20) and 2.63x (K = 100). 
 
 	4.2: This solution uses a global variable: globalMin, which keeps track of what is
  	     the current smallest number in nums[k-numThreads ... k-1]. With this I also need
@@ -74,10 +100,8 @@
 	4.3: I need to use a semophore when updating the global variables. That way, the globalMin
 	     won't be read and changed into a smaller value while another thread is still updating.
 
-	4.4: I can't seem to get a better result, so I have deducted it must be hardware.
+	4.4: I can't seem to get a better speedup on PC 1, so I have deducted it must be hardware.
 	     My initial thought was that the semophore is causing the time loss, but even when
 	     commenting it out (this will give the wrong answer!), the program actually used more
 	     time! I suppose the reason why is the threads keep updating globalMin, sometimes to
 	     a smaller value, thus running the method setGlobalMin() more often.
-	     
-
