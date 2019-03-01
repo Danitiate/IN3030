@@ -73,6 +73,7 @@
 	10 000 000	 835 ms			 19 ms			  10 ms
 	100 000 000	9552 ms			193 ms			  83 ms
 	
+	
 	k = 100		Arrays.sort()		Sequential		Parallell
 	1 000		   0 ms			  0 ms			   0 ms
 	10 000		   0 ms			  0 ms			   0 ms
