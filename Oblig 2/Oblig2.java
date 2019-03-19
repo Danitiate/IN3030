@@ -148,7 +148,7 @@ class Oblig2{
    * @return true if equal, false otherwise.
    */
   public static boolean checkSolution(double[][] c){
-    Sequential s = new Sequential(n, 0);
+    Sequential s = new Sequential(n, 1);
     double[][] a = Oblig2Precode.generateMatrixA(seed, n);
     double[][] b = Oblig2Precode.generateMatrixB(seed, n);
     double[][] check = s.sequential(a, b);

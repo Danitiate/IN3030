@@ -2,7 +2,7 @@
  * @author Daniel Dutta <danieldu@student.matnat.uio.no>
  * @date 2019.02.27
  */
- 
+
 class Sequential{
   int n, flag;
   public Sequential(int n, int flag){
@@ -19,9 +19,9 @@ class Sequential{
       for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
           for(int k=0;k<n;k++)
-            if(flag == 0){
+            if(flag == 1){
               c[i][j] += a[i][k] * b[k][j];
-            }else if(flag == 1){
+            }else if(flag == 2){
               c[i][j] += a[k][i] * b[k][j];
             }else{
               c[i][j] += a[i][k] * b[j][k];
