@@ -56,7 +56,8 @@ class Oblig3{
       facTime = (System.nanoTime() - facTime)/1000000;
 
       long facTimePara = System.nanoTime();
-      p.factorizeLargest();
+      ParallellFactor pf = new ParallellFactor(n, num_cores, paraPrimes);
+      pf.factorizeLargest();
       facTimePara = (System.nanoTime() - facTimePara)/1000000;
 
       System.out.printf("100 factorizations:   Sequential: %d ms    Parallell: %d ms    Speedup: %.3fx\n\n", facTime, facTimePara, (float) facTime/(float) facTimePara);
@@ -64,11 +65,12 @@ class Oblig3{
   }
 
   public static boolean testEqualResults(int[] seq, int[] para){
-    /*if(seq.length != para.length){
-      System.out.println("Seq length: " + seq.length + " | Para length: " + para.length);
+    if(seq.length != para.length){
+      System.out.printf("seq.length: %d    para.length: %d", seq.length, para.length);
       return false;
-    }*/
-    for(int i = seq.length; i < seq.length; i++){
+    }
+
+    for(int i = 0; i < seq.length; i++){
       if(seq[i] != para[i]){
         System.out.println(seq[i] + " | " + para[i]);
         return false;
@@ -76,10 +78,4 @@ class Oblig3{
     }
     return true;
   }
-
-   /**
-    * TODO: REFACTOR FACTORIZE Parallell single number
-    * TODO: (OPTIONAL) Fix bug FIND PRIMES Parallell: Wrong length
-    */
-
 }

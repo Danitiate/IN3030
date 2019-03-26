@@ -122,7 +122,7 @@ class SequentialSieve {
     private void factorize(int num, Oblig3Precode precode){
       int original = num;
 
-      for(int i = 0; i < primes.length/* && primes[i] < Math.sqrt(num)*/; i++){
+      for(int i = 0; i < primes.length; i++){
         if(num % primes[i] == 0){
           precode.addFactor(original, primes[i]);
           num = num/primes[i];
